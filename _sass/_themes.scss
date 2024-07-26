@@ -1,67 +1,6 @@
 @use "colors" as colors;
 @use "sass/utilities/css-variables" as cv;
-@use "sass/utilities/derived-variables" with (
-  $custom-colors: (
-    "css": colors.$css,
-    "html": colors.$html,
-    "github": colors.$github,
-    "js": colors.$js,
-    "primary":colors.$bleeding-red,
-    "patreon": colors.$patreon,
-    "sass": colors.$sass,
-    "facebook": colors.$facebook,
-    "twitter": (
-      colors.$twitter,
-      #fff,
-    ),
-    "sun": colors.$sun,
-    "moon": colors.$moon,
-  )
-);
 @use "sass/themes/light";
-
-$primary : colors.$primary;
-
-@mixin docs-light-theme {
-  --background-offset: -1%;
-  --border-offset: -6%;
-  --bulma-github-l: 10%;
-
-  .bd-svg-black {
-    path{
-      fill: var(--theme-color);
-    }
-  }
-
-  .bd-hidden-light {
-    display: none !important;
-  }
-
-  .bd-hidden-dark {
-    display: flex !important;
-  }
-}
-
-@mixin docs-dark-theme {
-  --background-offset: 1%;
-  --border-offset: 2%;
-  --bulma-github-l: 100%;
-
-  .bd-svg-black {
-    path{
-      fill: var(--theme-color);
-    }
-  }
-
-  .bd-hidden-light {
-    display: flex !important;
-  }
-
-  .bd-hidden-dark {
-    display: none !important;
-  }
-}
-
 
 :root {
   @each $name, $color in colors.$additional-colors {
@@ -165,6 +104,47 @@ $primary : colors.$primary;
   --hl-background: var(--hl-gray-09);
 }
 
+
+@mixin docs-light-theme {
+  --background-offset: -1%;
+  --border-offset: -6%;
+  --bulma-github-l: 10%;
+
+  .bd-svg-black {
+    path{
+      fill: var(--theme-color);
+    }
+  }
+
+  .bd-hidden-light {
+    display: none !important;
+  }
+
+  .bd-hidden-dark {
+    display: flex !important;
+  }
+}
+
+@mixin docs-dark-theme {
+  --background-offset: 1%;
+  --border-offset: 2%;
+  --bulma-github-l: 100%;
+
+  .bd-svg-black {
+    path{
+      fill: var(--theme-color);
+    }
+  }
+
+  .bd-hidden-light {
+    display: flex !important;
+  }
+
+  .bd-hidden-dark {
+    display: none !important;
+  }
+}
+
 @include cv.system-theme($name: "light") {
   @include docs-light-theme();
 }
@@ -179,9 +159,26 @@ $primary : colors.$primary;
 
 @include cv.bulma-theme($name: "dark") {
   @include docs-dark-theme();
-}
+} 
 
-@each $theme, $color in colors.$themes {
+
+$themes: (
+  "code": "link",
+  "css": "css",
+  "customize": "info",
+  "malaquita": "success",
+  "jupiter": "warning",
+  "html": "html",
+  "venus": "danger",
+  "primary": "primary",
+  "blot": "blot",
+  "sponsor": "patreon",
+  "start": "start",
+  "twitter": "twitter",
+  "moon": "moon",
+);
+
+@each $theme, $color in $themes {
   .bd-theme-#{$theme} {
     --theme-h: #{cv.getVar("-h", $color)};
     --theme-s: #{cv.getVar("-s", $color)};
