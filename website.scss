@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@use "_sass/colors";
+@use "_sass/themes";
 @use "_sass/sass" as bulma;
 
 @use "_sass/thing";
@@ -8,5 +8,5 @@
 @use "_sass/home";
 @use "_sass/docs";
 
-@use "_sass/lynn";
+@use "_sass/extras";
 @use "_sass/blazor";
