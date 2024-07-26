@@ -1,0 +1,40 @@
+
+@mixin docs-light-theme {
+   --background-offset: -1%;
+   --border-offset: -6%;
+   --bulma-github-l: 10%;
+ 
+   .bd-svg-black {
+     path{
+       fill: var(--theme-color);
+     }
+   }
+ 
+   .bd-hidden-light {
+     display: none !important;
+   }
+ 
+   .bd-hidden-dark {
+     display: flex !important;
+   }
+ }
+ 
+ @mixin docs-dark-theme {
+   --background-offset: 1%;
+   --border-offset: 2%;
+   --bulma-github-l: 100%;
+ 
+   .bd-svg-black {
+     path{
+       fill: var(--theme-color);
+     }
+   }
+ 
+   .bd-hidden-light {
+     display: flex !important;
+   }
+ 
+   .bd-hidden-dark {
+     display: none !important;
+   }
+ }
