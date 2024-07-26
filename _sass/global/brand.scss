@@ -1,0 +1,11 @@
+$w: 640px;
+$h: 160px;
+
+.logo-item {
+  --f: 0.25;
+  display: inline-flex;
+  height: calc(var(--f) * #{$h});
+  vertical-align: top;
+  // width: calc(var(--f) * #{$w});
+  padding-left: 0.29rem;
+}
